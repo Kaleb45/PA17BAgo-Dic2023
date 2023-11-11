@@ -1,0 +1,141 @@
+body {
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+header {
+    align-items: center;
+    background-color: #04364A;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 35px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 20px;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.titles {
+    display: flex;
+    margin-top: 40px;
+    text-align: left;
+    align-items: center;
+    padding: 5px;
+    color: #04364A;
+    font-size: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #04364A;
+}
+
+.table-database {
+    display: flex;
+    text-align: left;
+    width: 100%;
+    padding: 5px;
+    justify-content:center;
+}
+
+.table-database table{
+    width: 100%;
+}
+
+.table-database thead{
+    justify-content: center;
+    align-items: center;
+    background-color: #176B87;
+    color: #fff;
+    font-weight: bold;
+    border: #04364B;
+}
+
+.table-database thead td{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-color: #04364C;
+}
+
+.table-database tbody {
+    align-items: center;
+    background-color: #eee;
+}
+
+.table-database #id {
+    background-color: #ddd;
+    color:#043640;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table-database #campos {
+    text-align: left;
+}
+
+.table-database #id:hover {
+    color: #64CCC5;
+    font-weight: bold;
+}
+
+.table-database #campos:hover {
+    color: #176B87;
+    font-weight: bold;
+}
+
+.insert-database {
+    text-align: left;
+    margin-bottom: 2px;
+    padding-top: 3px;
+}
+
+.insert-database p {
+    border-bottom: 1px solid #176B87;
+}
+
+.fields-table {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 25%;
+}
+
+.fields-table input {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #64CCC5;
+    transition: border-color 0.3s;
+}
+
+.fields-table input:hover {
+    border-color: 1px solid #176B87;
+}
+
+.fields-table #enviar {
+    background-color: #176B87;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.fields-table #enviar:hover {
+    background-color: #04364A;
+    color: #fff;
+}
+
+footer {
+    background-color: #176B87;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}

@@ -1,0 +1,80 @@
+@page
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.EntityFrameworkCore.ChangeTracking
+@model NorthwindPages.SupplierModel
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@using NorthwindSQLiteEntity;
+@using NorthwindDataContext;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/styles.css">
+    <title>Suppliers</title>
+</head>
+<body>
+    <div class="titles">
+        <p>Suppliers</p>
+    </div>
+    <div class="table-database">
+        <table border="1">
+            <thead>
+                <tr>
+                    <td><p>SupplierId</p></td>
+                    <td><p>CompanyName</p></td>
+                    <td><p>ContactName</p></td>
+                    <td><p>Phone</p></td>
+                </tr>
+            </thead>
+            <tbody>
+                @using(Northwind db = new Northwind(new DbContextOptions<Northwind>()))
+                {
+                    @if(db.Suppliers is null || (!db.Suppliers.Any())) // Para revisar si no esta vacio o es null
+                    {
+                        return;
+                    }
+
+                    @foreach(var supplier in db.Suppliers)
+                    {
+                        <tr>
+                            <td id="id">@supplier.SupplierId</td>
+                            <td id="campos">@supplier.CompanyName</td>
+                            <td id="campos">@supplier.ContactName</td>
+                            <td id="campos">@supplier.Phone</td>
+                        </tr>
+                    }
+                }
+                @*
+                    @if (Model.Suppliers is not null)
+                    {
+                        @foreach (Supplier supplier in Model.Suppliers)
+                        {
+                            <tr>
+                                <td>@supplier.CompanyName</td>
+                                <td>@supplier.ContactName</td>
+                                <td>@supplier.Phone</td>
+                            </tr>
+                        }
+                    }
+                *@
+            </tbody>
+        </table>
+    </div>
+    <div class="insert-database">
+        <p>Create new supplier</p>
+        <form method="POST">
+            <div class="fields-table">
+                <input asp-for="Supplier.CompanyName" placeholder="Company Name" class="form-control">
+                <span asp-validation-for="Supplier.CompanyName" class="text-danger"></span>
+                <input asp-for="Supplier.ContactName" placeholder="Contact Name" class="form-control">
+                <span asp-validation-for="Supplier.ContactName" class="text-danger"></span>
+                <input asp-for="Supplier.Phone" placeholder="Phone" class="form-control">
+                <span asp-validation-for="Supplier.Phone" class="text-danger"></span>
+                <input id="enviar" type="submit" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>
